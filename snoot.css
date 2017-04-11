@@ -1,0 +1,77 @@
+/* CSS Document */
+/*html {
+	background-image:url(/student/globalit/2016/04_03/tinker/data/assets/images/flour-baking-background-with-egg,-rolling-pin-and-wheat-ear-000069728007_Medium_2.jpg)
+}*/
+
+hr {
+	/*width:5px;*/
+	color: #398CA4;
+	height: 1px;
+	background-color: #398CA4;
+}
+
+/*img .navbar-brand {
+	margin:0;
+	padding:0;
+}*/
+
+.navbar-brand {
+	font-family: 'Pacifico', cursive;
+	
+}
+
+h1, h2, h3 {
+	font-family: 'Pacifico', cursive;
+}
+
+/*html { 
+	background: url(student/globalit/2016/04_03/tinker/data/assets/images/flour-baking-background-with-egg,-rolling-pin-and-wheat-ear-000069728007_Medium_2.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}*/
+
+.view {
+    height: 100%;
+}
+
+aside {
+    float: right;
+    padding: 1%;
+    width: 26%;
+	
+}
+
+#content {
+    float: left;
+    /*padding: 3%;*/
+    width: 73%;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+@media screen and (min-width: 768px) {
+	.view {
+		background: url("http://foothillertech.com/student/globalit/2016/04_03/tinker/data/assets/images/flour2.png")no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	.view2 {
+		background: url("http://foothillertech.com/student/globalit/2016/04_03/tinker/data/assets/images/enjoi2.png")no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+}
+@media all and (max-width : 768px) {
+    aside {
+        width: 100%;
+    }
+	#content {
+		width: 100%;
+	}
+}

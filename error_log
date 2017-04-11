@@ -1,0 +1,21 @@
+[30-Jan-2017 19:03:40 UTC] PHP Warning:  include(database.php): failed to open stream: No such file or directory in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 39
+[30-Jan-2017 19:03:40 UTC] PHP Warning:  include(database.php): failed to open stream: No such file or directory in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 39
+[30-Jan-2017 19:03:40 UTC] PHP Warning:  include(): Failed opening 'database.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 39
+[30-Jan-2017 19:03:40 UTC] PHP Fatal error:  Class 'Database' not found in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 40
+[16-Feb-2017 19:05:51 UTC] PHP Warning:  include(../database.php): failed to open stream: No such file or directory in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/indexNew.php on line 21
+[16-Feb-2017 19:05:51 UTC] PHP Warning:  include(../database.php): failed to open stream: No such file or directory in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/indexNew.php on line 21
+[16-Feb-2017 19:05:51 UTC] PHP Warning:  include(): Failed opening '../database.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/indexNew.php on line 21
+[16-Feb-2017 19:05:51 UTC] PHP Fatal error:  Class 'Database' not found in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/indexNew.php on line 22
+[21-Feb-2017 04:10:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 109
+[21-Feb-2017 04:10:55 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 109
+[21-Feb-2017 04:11:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 109
+[21-Feb-2017 04:23:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 113
+[21-Feb-2017 04:23:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 113
+[21-Feb-2017 04:24:56 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 113
+[21-Feb-2017 04:24:56 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 113
+[21-Feb-2017 04:25:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 113
+[21-Feb-2017 04:25:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 113
+[21-Feb-2017 04:25:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 113
+[21-Feb-2017 04:25:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 113
+[21-Feb-2017 04:33:53 UTC] PHP Fatal error:  Class 'Database' not found in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 34
+[21-Feb-2017 04:37:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/benrud/public_html/student/globalit/2016/04_03/tinker/data/index.php on line 38
