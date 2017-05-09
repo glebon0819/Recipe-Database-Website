@@ -11,14 +11,44 @@
 <body>
     <?php include '/home/benrud/public_html/student/globalit/2016/04_03/tinker/data/assets/includes/nav.html'; ?>
     <div class="container mx-auto"> 
-        <h1>Category: <?php echo $_GET['search']; ?> Recipes</h1>
+        <h1>Category/Advanced Search</h1>
+        <form action="category.php" method="get">
+        	<h3>Find recipes:</h3>
+            <p>Category</p>
+            <div>
+            <select id="category_select" name="category">
+            	<option disabled="disabled" selected="selected">Select</option>
+                <option value="ingredientsMain">Main Ingredients</option>
+                <option value="ingredientsAll">All Ingredients</option>
+            </select>
+            </div>
+            
+            <div id="search_select"></div>
+            <br />
+            <input type="submit" value="search" />
+        </form>
+        <br />
             <?php
 			
 			include '/home/benrud/public_html/student/globalit/2016/04_03/tinker/data/database.php';
 			
 			$view_count = $row['view_count'];
+			/*
+			if(function_exists('curl_version')) {
+				echo '<p>true</p>';
+			}
+			else {
+				echo '<p>false</p>';
+			}
+			*/
 			$pdo = Database::connect();
-			$sql = "SELECT * FROM recipes WHERE ". $_GET['category'] ." LIKE '%". $_GET['search'] ."%';";
+			if (isset($_GET['category'])) {
+				$sql = "SELECT * FROM recipes WHERE ". $_GET['category'] ." LIKE '%". $_GET['search'] ."%';";
+			}
+			else {
+				$sql = "SELECT * FROM recipes";	
+			}
+				
 			$count = 0;
 			foreach ($pdo->query($sql) as $row) {
 				$badSteps = $row['steps'];
@@ -38,19 +68,28 @@
 				$ing = str_replace("|", "", $ing);
 				
 				$badPhotos = $row['photos'];
-				$badPhotos = str_replace(" ", "", $badPhotos);
-				$badPhotos = str_replace(" ", ",", $badPhotos);
-				$badPhotos = $badPhotos . ",";
-				$badPhotos = str_replace(",,", ",", $badPhotos);
-				$badPhotos = str_replace('http://', '<img src="http://', $badPhotos);
-				$badPhotos = str_replace(',', '.jpg,', $badPhotos);
-				$badPhotos = str_replace('.png.jpg', '.png', $badPhotos);
-				
-				
-				$badPhotos = str_replace(',', '" width="100%" onerror="this.src=\'http://foothillertech.com/student/globalit/2016/04_03/tinker/data/assets/images/plate.jpg\'" />,', $badPhotos);
-				$badPhotos = str_replace('/>.jpg" width="100%" onerror="this.src=\'http://foothillertech.com/student/globalit/2016/04_03/tinker/data/assets/images/plate.jpg\'" />,', ' />', $badPhotos);
-				$badPhotos = strstr($badPhotos, ",", false);
-				$badPhotos = str_replace(',', '', $badPhotos);
+					if (substr_count($badPhotos, ",") > 0) {
+						$badPhotosEx = explode(",", $badPhotos);
+						$badPhotos = $badPhotosEx[0];
+					}
+					$badPhotos = str_replace(" ", "", $badPhotos);
+					$badPhotos = str_replace(" ", ",", $badPhotos);
+					$badPhotos = $badPhotos . ",";
+					$badPhotos = str_replace(",,", ",", $badPhotos);
+					$badPhotos = str_replace("i.imgur", "http://i.imgur", $badPhotos);
+					$badPhotos = str_replace("images.media", "http://images.media", $badPhotos);
+					$badPhotos = str_replace("http://http://", "http://", $badPhotos);
+					$badPhotos = str_replace("https://http://", "http://", $badPhotos);
+					$badPhotos = str_replace('http://', '<img src="http://', $badPhotos);
+					$badPhotos = str_replace('https://', '<img src="https://', $badPhotos);
+					$badPhotos = str_replace(',', '.jpg,', $badPhotos);
+					$badPhotos = str_replace('.png.jpg', '.png', $badPhotos);
+					
+					
+					$badPhotos = str_replace(',', '" width="100%" onerror="this.src=\'http://foothillertech.com/student/globalit/2016/04_03/tinker/data/assets/images/plate.jpg\'" />,', $badPhotos);
+					$badPhotos = str_replace('/>.jpg" width="100%" onerror="this.src=\'http://foothillertech.com/student/globalit/2016/04_03/tinker/data/assets/images/plate.jpg\'" />,', ' />', $badPhotos);
+					//$badPhotos = strstr($badPhotos, ",", false);
+					$badPhotos = str_replace(',', '', $badPhotos);
 				
 				$diet = $row['mealDiet'];
 				$diet = str_replace('Omnivore(normal)', 'None', $diet);
@@ -79,3 +118,23 @@
   	</div>
   </body>
 </html>
+<script>
+
+
+$("select#category_select").on("change", function () {
+    var category = $("#category_select").val();
+	
+    var main_search_select = '<br /><p>Which Main Ingredient?</p><select id="ing_main_select" name="search"><option value="fish">Fish</option><option value="beef">Beef</option></select>';
+	var all_search_select = '<br /><p>Which Ingredient?</p><input type="text" name="search" />';
+	
+    var html = '';
+    $("#search_select").html('');
+    if (category == "ingredientsMain") {
+		html += main_search_select
+	}
+	else if (category == "ingredientsAll") {
+		html += all_search_select;
+	}
+	$("#search_select").html(html);
+});
+</script>

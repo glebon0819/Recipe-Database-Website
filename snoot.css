@@ -5,9 +5,9 @@
 
 hr {
 	/*width:5px;*/
-	color: #398CA4;
+	color: #000;
 	height: 1px;
-	background-color: #398CA4;
+	/*background-color: #398CA4;*/
 }
 
 /*img .navbar-brand {
@@ -53,7 +53,7 @@ aside {
 
 @media screen and (min-width: 768px) {
 	.view {
-		background: url("http://foothillertech.com/student/globalit/2016/04_03/tinker/data/assets/images/flour2.png")no-repeat center center fixed;
+		background: url("http://foothillertech.com/student/globalit/2016/04_03/tinker/data/assets/images/flour3.png")no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;

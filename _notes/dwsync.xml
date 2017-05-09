@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="database.php" server="foothillertech.com" local="131303054400000000" remote="131303054400000000" Dst="0" />
-<file name="error_log" server="foothillertech.com" local="131335126307103772" remote="131321542200000000" Dst="0" />
-<file name="database2.php" server="foothillertech.com" local="131319667870222474" remote="131319955800000000" Dst="0" />
-<file name="index.php" server="foothillertech.com" local="131347958461562138" remote="131348246400000000" Dst="0" />
-<file name="indexOld.php" server="foothillertech.com" local="131319647727718314" remote="131319988800000000" Dst="0" />
-<file name="indexOlder.php" server="foothillertech.com" local="131317710256389902" remote="131319988800000000" Dst="0" />
-<file name="indexNew.php" server="foothillertech.com" local="131335126369193025" remote="131334152400000000" Dst="0" />
-<file name="snoot.css" server="foothillertech.com" local="131344351066905232" remote="131344638600000000" Dst="0" />
-<file name="template.php" server="foothillertech.com" local="131335126390223414" remote="131334152400000000" Dst="0" />
-<file name="losAlamos.php" server="foothillertech.com" local="131344426544230722" remote="131344714200000000" Dst="0" />
-<file name="img.php" server="foothillertech.com" local="131348124552692821" remote="131348412000000000" Dst="0" />
+<file name="database.php" server="foothillertech.com" local="131385739500721217" remote="131303018400000000" Dst="2" />
+<file name="error_log" server="foothillertech.com" local="131385739506441428" remote="131321506200000000" Dst="2" />
+<file name="database2.php" server="foothillertech.com" local="131385739503503618" remote="131319919800000000" Dst="2" />
+<file name="index.php" server="foothillertech.com" local="131386971499811722" remote="131387223000000000" Dst="2" />
+<file name="indexOld.php" server="foothillertech.com" local="131385739616770202" remote="131319952800000000" Dst="2" />
+<file name="indexOlder.php" server="foothillertech.com" local="131385739617722718" remote="131319952800000000" Dst="2" />
+<file name="indexNew.php" server="foothillertech.com" local="131385739613376187" remote="131334116400000000" Dst="2" />
+<file name="snoot.css" server="foothillertech.com" local="131385739661423893" remote="131382460800000000" Dst="2" />
+<file name="template.php" server="foothillertech.com" local="131385739662506784" remote="131334116400000000" Dst="2" />
+<file name="losAlamos.php" server="foothillertech.com" local="131385739621923891" remote="131344678200000000" Dst="2" />
+<file name="img.php" server="foothillertech.com" local="131385739609054675" remote="131348376000000000" Dst="2" />
+<file name="categories.php" server="foothillertech.com" local="131385739492619684" remote="131334116400000000" Dst="2" />
+<file name="chef.php" server="foothillertech.com" local="131385739495016367" remote="131334116400000000" Dst="2" />
+<file name="contact.php" server="foothillertech.com" local="131385739497868634" remote="131334116400000000" Dst="2" />
+<file name="losAlamos.html" server="foothillertech.com" local="131385739621322287" remote="131344639200000000" Dst="2" />
+<file name="recipe.php" server="foothillertech.com" local="131385739656205023" remote="131335450800000000" Dst="2" />
+<file name="search.php" server="foothillertech.com" local="131385739658019844" remote="131334116400000000" Dst="2" />
 </dwsync>

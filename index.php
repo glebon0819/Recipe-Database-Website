@@ -15,7 +15,7 @@
             
         <h1>Victoria and Gabriel's Recipe Website</h1>  
         <p>Est. 2017</p>
-        <p>For the last 20 days, we've been creating a vibrant community of chefs and cooks that are eager to share their recipes. Join the fun and start browsing or start writing!</p>
+        <p>For the last 20 days, we've been creating a vibrant community of chefs and cooks that are eager to share their recipes. Benrud asked us to have at least two-hundred words in our front page description. I don't know how to fill in that much, so I think I'll just copy and paste these last few sentences about ten or so times. Benrud asked us to have at least two-hundred words in our front page description. I don't know how to fill in that much, so I think I'll just copy and paste these last few sentences about ten or so times. Benrud asked us to have at least two-hundred words in our front page description. I don't know how to fill in that much, so I think I'll just copy and paste these last few sentences about ten or so times. I don't know how to fill in that much, so I think I'll just copy and paste these last few sentences about ten or so times. Benrud asked us to have at least two-hundred words in our front page description. Join the fun and start browsing or start writing!</p>
         <h3>Start Searching</h3>
         <hr>
         <form action="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/searchNew.php?" method="get">
@@ -96,7 +96,7 @@
 		
 		Database::disconnect();
 		?>
-        <a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/popular.php"><button width="100%" type="button" class="btn btn-info btn-lg btn-block">Find More Delicious Recipes</button></a>
+        <a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/category.php"><button width="100%" type="button" class="btn btn-info btn-lg btn-block">Find More Delicious Recipes</button></a>
         <br>
         <h3>Popular Recipes</h3>
         <hr>
@@ -174,7 +174,7 @@
         <?php
 			
         		$pdo = Database::connect();
-                $sql = "SELECT * FROM recipes WHERE chef = 'Victoria Burke' OR chef = 'Gabriel Lebon' LIMIT 2;";
+                $sql = "SELECT * FROM recipes WHERE chef = 'Victoria Burke' OR chef = 'Gabriel Lebon';";
                 foreach ($pdo->query($sql) as $row) {
 					$pdo1 = Database1::connect1();
 					$sql1 = "SELECT * FROM popularity WHERE recipe_id = '". $row['id'] ."';";
@@ -224,7 +224,7 @@
                     echo '<div class="col-lg-6" style="padding:20px;">';
 					echo '<h3><a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/recipe.php?id='. $row['id'] .'">'. $row['name'] . '</a></h3>';
 					echo '<p>Viewed '. $view_count .' times</p>';
-                    echo '<p>By <a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/chef.php?chef='. $row['chef'] .'">'. $row['chef'] . '</a></p>';
+                    echo '<p>By <a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/chefNew.php?chef='. $row['chef'] .'">'. $row['chef'] . '</a></p>';
                     echo '<p><em>'. $row['description'] . '</em></p>';
 					echo '<p>Difficulty: <a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/category.php?category=difficulty&search='. $row['difficulty'] .'">'. $row['difficulty'] . '</a></p>';
 					echo '<p>Diet Type: <a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/category.php?category=mealDiet&search='. $diet .'">'. $diet . '</a></p>';
@@ -238,5 +238,6 @@
 			?>
   	</div>
     </div>
+    <?php include '/home/benrud/public_html/student/globalit/2016/04_03/tinker/data/assets/includes/footer.html'; ?>
   </body>
 </html>

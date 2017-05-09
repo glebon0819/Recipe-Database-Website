@@ -121,15 +121,22 @@ Database1::disconnect1();
                 $badSteps = str_replace("^", "</p>", $badSteps); 
                 
                 $ing = $row['ingredientsMain'];
-                $ing = str_replace("pork", "pork<br>", $ing);
-                $ing = str_replace("chicken", "chicken<br>", $ing);
-                $ing = str_replace("broccoli", "pork<br>", $ing);
-                $ing = str_replace("beef", "beef<br>", $ing);
-                $ing = str_replace("fish", "fish<br>", $ing);
-                $ing = str_replace("pasta", "pasta<br>", $ing);
-                $ing = str_replace("rice", "rice<br>", $ing);
+                /*$ing = str_replace("pork", "<li>pork</li>", $ing);
+                $ing = str_replace("chicken", "<li>chicken</li>", $ing);
+                $ing = str_replace("broccoli", "<li>pork</li>", $ing);
+                $ing = str_replace("beef", "<li>beef</li>", $ing);
+                $ing = str_replace("fish", "<li>fish</li>", $ing);
+                $ing = str_replace("pasta", "<li>pasta</li>", $ing);
+                $ing = str_replace("rice", "<li>rice</li>", $ing);
+				$ing = str_replace("vegetables", "<li><strong>vegetables</strong></li>", $ing);*/
                 $ing = str_replace(" ", "", $ing);
-                $ing = str_replace("|", "", $ing);
+                //$ing = str_replace("|", "", $ing);
+				$street = explode('|', $ing);
+				array_filter($street);
+				$ingreds = "";
+				foreach ($street as $se) { 
+					$ingreds = $se;
+				}
                 
                 /*$ingsAll = '<li><a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/category.php?category=ingredientsAll&search=' . 'pork' . '">' . $row['ingredientsAll'] . '</a></li>';
                 $ingsAll = str_replace(",", "</li><li>", $ingsAll);
@@ -140,13 +147,15 @@ Database1::disconnect1();
 				$ingyee = rtrim($row['ingredientsAll'], ',');
                 $ings = explode(',', $ingyee);
                 foreach ($ings as &$value) {
-                    $value = '<li><a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/category.php?category=ingredientsAll&search=' . $value . '">'. $value .'</a></li>';
+                    $value = '<li>'. $value .'</li>';
                 }
                 unset($value);
                 $ingsAll = $ings[0];
                 $ingsAll = array_values($ings);
+				
+				$prep_time_array = unserialize($row['timePrep']);
                 
-                $badPhotos = $row['photos'];
+          $badPhotos = $row['photos'];
 					if (substr_count($badPhotos, ",") > 0) {
 						$badPhotosEx = explode(",", $badPhotos);
 						$badPhotos = $badPhotosEx[0];
@@ -170,22 +179,84 @@ Database1::disconnect1();
 					//$badPhotos = strstr($badPhotos, ",", false);
 					$badPhotos = str_replace(',', '', $badPhotos);
                 
+				if($prep_time_array[3] > 0) { 
+					$hours = $prep_time_array[3];
+				} 
+				else { 
+					$hours = 0;
+				}
+				
+				if($prep_time_array[0] > 0) { 
+					$minutes = $prep_time_array[0];
+				} 
+				else { 
+					$minutes = 0;
+				}
+				
+				if($prep_time_array[2] > 0) { 
+					$minutes2 = $prep_time_array[2];
+				} 
+				else { 
+					$minutes2 = 0;
+				}
+				
+				if($prep_time_array[1] > 0) { 
+					$hours = $prep_time_array[1];
+				} 
+				else { 
+					$hours2 = 0;
+				}
+				
+				
+				
+				if (strlen($ingreds) > 0) {
+					$ingreds = $ingreds;
+					$link = '<a href="/student/globalit/2016/04_03/tinker/data/pages/category.php?category=ingredientsMain&search='. $ingreds .'">';
+					$link2 = '</a>';
+				}
+				else {
+					$ingreds = "None";
+					$link = '';
+					$link2 = '';
+				}
                 
                 echo ''. $badPhotos .'<br><br>';
                 echo '<div id="description"><em>'. $row['description'] .'</em></div><br>';
+				echo '<div>Word Count: '. (str_word_count($row['description']) + 3) .'</div><br />';
                 echo '
                         <div class="row-fluid">
                             <div class="col-lg-6">
-                                <h3 style="text-align:center;">Ingredients:</h3>
-                                <ul>'; 
-                                foreach ($ings as $item) {
-                                    echo $item;
-                                }
-                echo '</ul>
+								<h4><span class="glyphicon glyphicon-cutlery"></span> Meal Course Type:</h3>
+								<p>' . $row['mealTypeCourse'] . '</p>
+								<br />
+								<h4><span class="glyphicon glyphicon-time"></span> Prep Time:</h3>
+								<p>' . $hours2 . ' hours and ' . $minutes . ' minutes</p>
+								<br />
+								<h4><span class="glyphicon glyphicon-time"></span> Cook Time:</h3>
+								<p>' . $hours . ' hours and ' . $minutes2 . ' minutes</p>
+								<br />
+                                <h4><span class="glyphicon glyphicon-apple"></span> Main Ingredient:</h3>
+                                <ul><li>'. $link . $ingreds . $link2 . '</li></ul>
+								<br />
+								<h4><span class="glyphicon glyphicon-record"></span> Difficulty:</h3>
+								<p>'. $row['difficulty'] .'</p>
+								<br />
+								<h4><span class="glyphicon glyphicon-grain"></span> Meal Diet:</h3>
+								<p>'. $row['mealDiet'] .'</p>
+								<br />
+								
                             </div>
                             <div class="col-lg-6">
-                                <h3 style="text-align:center;">Steps:</h3>
+                                <h4><span class="glyphicon glyphicon-list-alt"></span> Ingredients:</h3>
+                                <ul>';
+								foreach ($ings as $item) {
+                                    echo $item;
+                                }
+								echo '</ul>
+								<br />
+								<h4><span class="glyphicon glyphicon-tasks"></span> Steps:</h3>
                                 <p>'. $badSteps .'</p>
+								<br />
                             </div>
                         </div>
                     ';

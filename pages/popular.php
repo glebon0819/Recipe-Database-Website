@@ -8,7 +8,7 @@
     <?php include '/home/benrud/public_html/student/globalit/2016/04_03/tinker/data/assets/includes/links.html'; ?>
 </head>
  
-<body class="view2">
+<body class="view">
     <?php include '/home/benrud/public_html/student/globalit/2016/04_03/tinker/data/assets/includes/nav.html'; ?>
     <div class="container mx-auto"> 
         <h1>Popular Recipes</h1>

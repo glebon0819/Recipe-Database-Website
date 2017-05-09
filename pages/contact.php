@@ -14,16 +14,39 @@
     	<h1>Contact Us</h1>
     </div>
     <div class="container">
-    	Questions? Comments? Concerns? Submit a query:
+    	
         <?php
-		if(!isset($_POST['message'])) {
-			echo '
-			<form action="contact.php" method="post">
-				<textarea name="message"></textarea>
-				<button class="btn btn-success" type="submit">Submit</button>
-			</form>';
+		if(isset($_GET['message'])) {
+			echo '<p>Email: '. $_GET['email'] .'</p>';
+			echo '<p>Type: '. $_GET['type'] .'</p>';
+			echo '<p>Message: '. $_GET['message'] .'</p>';
 		}
+		else {
+			echo '<form action="contact.php" method="GET">
+            
+                <h4>Email:</h4>
+                <input type="email" name="email" id="email">
+                <br />
+            	<br />
+                <h4>Type of Message</h4>
+                <select name="type">
+                	<option disabled="disabled" selected="selected">Select</option>
+                    <option>Question</option>
+                    <option>Comment</option>
+                    <option>Concern</option>
+                    <option>Complaint</option>
+                </select>
+                <br />
+            	<br />
+                <h4>Your message:</h4>
+                <textarea name="message"></textarea><br />
+                <input class="btn" type="submit" />
+                
+            
+        </form>';
+		}
+
 		?>
-    </div>
+</div>
 </body>
 </html>

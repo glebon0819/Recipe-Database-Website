@@ -27,7 +27,7 @@
         </form>
         <br>
         
-        <a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/searchAdvanced.php"><button width="100%" type="button" class="btn btn-link btn-block" id="advancedButton">Go To Advanced Search</button></a>
+        <a href="http://foothillertech.com/student/globalit/2016/04_03/tinker/data/pages/category.php"><button width="100%" type="button" class="btn btn-link btn-block" id="advancedButton">Go To Advanced Search</button></a>
         <br>
         
         <?php
@@ -53,7 +53,7 @@
 			}
 			
 			//counts up the number of recipe results
-			$sql = "SELECT * FROM `recipes` WHERE CONCAT_WS('|',`name`,`description`,`ingredientsAll`) LIKE '%" . $_GET['searchTerm'] . "%';";
+			$sql = "SELECT * FROM `recipes` WHERE CONCAT_WS('|',`name`,`description`,`ingredientsAll`,`ingredientsMain`) LIKE '%" . $_GET['searchTerm'] . "%';";
 			foreach ($pdo->query($sql) as $row) {
 				$results++;
 			}
@@ -121,7 +121,7 @@
 					}
 				}
 				
-				// ****************************** E N D   T O P   T H R E E   R E C I P E S ******************************
+				// ****************************** E N D   T O P   T H R E E   R E C I P E S ****************************** 
 				
 				if ($num_of_rated_recipes > 0) {
 					$avg_chef_rating_rounded = round(($num2 / $num_of_rated_recipes), 1); // rounds the avg chef rating to one decimal place
@@ -164,7 +164,7 @@
 			$num = 1;
 			
 			$pdo = Database::connect();
-			$sql = "SELECT * FROM `recipes` WHERE CONCAT_WS('|',`name`,`description`,`ingredientsAll`) LIKE '%" . $_GET['searchTerm'] . "%';";
+			$sql = "SELECT * FROM `recipes` WHERE CONCAT_WS('|',`name`,`description`,`ingredientsAll`,`ingredientsMain`) LIKE '%" . $_GET['searchTerm'] . "%';";
 			foreach ($pdo->query($sql) as $row) {
 				$views = 0;
 				$rate = 0;
@@ -295,13 +295,13 @@
 					$badSteps = str_replace("^", "</p>", $badSteps); 
 					
 					$ing = $row['ingredientsMain'];
-					$ing = str_replace("pork", "pork<br>", $ing);
-					$ing = str_replace("chicken", "chicken<br>", $ing);
-					$ing = str_replace("broccoli", "pork<br>", $ing);
-					$ing = str_replace("beef", "beef<br>", $ing);
-					$ing = str_replace("fish", "fish<br>", $ing);
-					$ing = str_replace("pasta", "pasta<br>", $ing);
-					$ing = str_replace("rice", "rice<br>", $ing);
+					$ing = str_replace("pork", "pork<br />", $ing);
+					$ing = str_replace("chicken", "chicken<br />", $ing);
+					$ing = str_replace("broccoli", "pork<br />", $ing);
+					$ing = str_replace("beef", "beef<br />", $ing);
+					$ing = str_replace("fish", "fish<br />", $ing);
+					$ing = str_replace("pasta", "pasta<br />", $ing);
+					$ing = str_replace("rice", "rice<br />", $ing);
 					$ing = str_replace(" ", "", $ing);
 					$ing = str_replace("|", "", $ing);
 					
